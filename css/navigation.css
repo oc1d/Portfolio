@@ -1,0 +1,95 @@
+.goLeft {
+width: 71px;
+height: 46px;
+float:left;
+background-image: url(../images/goLeft.jpg);
+}
+.goLeft:hover {
+width: 71px;
+height: 46px;
+float:left;
+background-image: url(../images/goLeftHover.jpg);
+}
+.goRight {
+width: 71px;
+height: 46px;
+float:left;
+background-image: url(../images/goRight.jpg);
+}
+.goRight:hover {
+width: 71px;
+height: 46px;
+float:left;
+background-image: url(../images/goRightHover.jpg);
+}
+.goForward {
+width: 46px;
+height: 71px;
+float:left;
+background-image: url(../images/goForward.jpg);
+}
+.goForward:hover {
+width: 46px;
+height: 71px;
+float:left;
+background-image: url(../images/goForwardHover.jpg);
+}
+.goBackward {
+width: 46px;
+height: 71px;
+float:left;
+background-image: url(../images/goBackward.jpg);
+}
+.goBackward:hover {
+width: 46px;
+height: 71px;
+float:left;
+background-image: url(../images/goBackwardHover.jpg);
+}
+
+.turnLeft {
+width: 71px;
+height: 71px;
+float:left;
+background-image: url(../images/turnLeft.jpg);
+}
+
+.turnLeft:hover {
+width: 71px;
+height: 71px;
+float:left;
+background-image: url(../images/turnLeftHover.jpg);
+}
+
+.turnRight {
+width: 71px;
+height: 71px;
+float:left;
+background-image: url(../images/turnRight.jpg);
+}
+
+.turnRight:hover {
+width: 71px;
+height: 71px;
+float:left;
+background-image: url(../images/turnRightHover.jpg);
+}
+
+.controlOnOff {
+    /*background-color: #EEE;*/
+    text-align: left;
+    padding: 0px;
+    margin-left: 5px;
+}
+
+.controlOnOffText {
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
+
+.map {
+    margin-left: 5px;
+    margin-right: 10px;
+    width: 213px;
+    height: 213px;
+}

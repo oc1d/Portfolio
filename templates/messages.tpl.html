@@ -1,0 +1,48 @@
+ {if $noUserForEmail }
+        <div class="stdErrorLine">
+          Unter dieser E-Mail-Adresse ist kein Benutzer registriert
+       </div>
+ {/if}
+ {if $emailInvalid }
+         <div class="stdErrorLine">
+           Du hast keine gültige E-Mail-Adresse angegeben
+        </div>
+ {/if}
+ {if $mailSuccess }
+         <div class="stdMessageLine">
+          Die E-mail wurde erfolgreich abgesendet
+        </div>
+ {/if}
+ {if $loginIncorrect}
+         <div class="stdErrorLine">
+           Benuztername und/oder Passwort falsch
+        </div>    
+  {/if}
+  {if $registerSuccess}
+          <div class="stdMessageLine">
+           Du hast Dich erfolgreich registriert und kannst Dich nun einloggen
+        </div>    	    
+  {/if}
+  {if $passwordResetSuccessfull}
+          <div class="stdMessageLine">
+           Dein Passwort wurde erfolgreich geändert. Du kannst Dich jetzt wieder einloggen.
+        </div>
+  {/if}
+  {if $notLoggedIn}    
+	        
+  {/if}
+  {if $creationError}
+          <div class="stdErrorLine">
+           Bei der Registrierung ist ein Fehler aufgetreten. Möglicherweise sind eingegebene Daten schon vorhanden.
+        </div>
+  {/if}
+  {if $keyInvalid}
+          <div class="stdErrorLine">
+           Der angegebene Schlüssel ist nicht gültig.
+        </div>
+  {/if}
+  {if $passwordMissmatch}
+        <div class="stdErrorLine">
+           Fehler: Die eingegebenen Passwörter stimmen nicht überein
+        </div>
+  {/if}

@@ -1,0 +1,6 @@
+Der Benutzer %NAME% hat Dir einen neuen Kommentar hinterlassen.
+
+<a href="%LINK%">ZUM EXPONAT</a>
+
+Viel Spaß beim Stöbern,
+das Portfolio-Team

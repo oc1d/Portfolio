@@ -1,0 +1,31 @@
+
+<div class="stdBox">
+	<div class="stdBoxHeader">Suche</div>
+	<div class="stdBoxContent">
+		<form method="post" action="./?page=Search">
+		<div class="stdFormLine">
+		  <div class="stdFormLineText">Suchbegriff:</div>
+		  <div class="stdFormLineInput"><input type="text" name="searchphrase" /></div> 
+		</div>		
+        <div class="stdFormLine">
+            <div class="stdFormLineText"><input type="submit" value="suchen"/></div>            
+        </div>		      		
+		</form>
+	</div>
+</div>
+
+{if $users}
+<div class="stdBox">
+    <div class="stdBoxHeader">Suchergebnisse -- {$resultCount} Ergebnis(se) gefunden </div>
+    <div class="stdBoxContent">
+      {foreach name=result from=$users item=user}
+        <div class="userCommentWide">
+            {$smarty.foreach.result.iteration}. <a href="./?page=Galery&action=goToUser&userId={$user->id}"><b>{$user->name}</b></a>      
+        <div class="userCommentText">{$user->shortDescription}</div>
+        <a class="userCommentLink" target="_blank" href="http://{$user->weblink}">{$user->weblink}</a>     
+		</div> 
+      {/foreach}
+        
+    </div>
+</div>
+{/if}

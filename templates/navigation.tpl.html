@@ -1,0 +1,24 @@
+        <div class = "nav">
+            {if $page == 'Galery'}    <span class="linkActive">Galerie</span>{else}<a href="./?page=Galery">Galerie</a>{/if}
+            &nbsp;|&nbsp;
+            {if $page == 'Search'}  <span class="linkActive">Suche</span>{else}<a href="./?page=Search">Suche</a>{/if}
+            &nbsp;|&nbsp;                       
+            {if $page == 'Register'}  <span class="linkActive">Registrieren</span>{else}<a href="./?page=Register">Registrieren</a>{/if}
+            &nbsp;|&nbsp;
+            {if $page == 'Manual'}  <span class="linkActive">Baue Deinen eigenen Raum</span>{else}<a href="./?page=Manual">Baue Deinen eigenen Raum</a>{/if}
+            &nbsp;|&nbsp;
+            {if $page == 'Contact'}  <span class="linkActive">Kontakt</span>{else}<a href="./?page=Contact">Kontakt</a>{/if}                        
+            &nbsp;|&nbsp;
+            {if $page == 'UserHome'}  <span class="linkActive">Persönliche Seite</span>{else}<a href="./?page=UserHome">Persönliche Seite</a>{/if}
+            &nbsp;|&nbsp;
+            <!--
+            {if $page == 'About'}  <span class="linkActive">Was das hier ist</span>{else}<a href="./?page=About">Was das hier ist</a>{/if}
+            &nbsp;|&nbsp;
+            -->
+            {if $page == 'ForgetPassword'}  <span class="linkActive">Passwort vergessen</span>{else}<a href="./?page=ForgetPassword">Passwort vergessen</a>{/if}
+            &nbsp;|&nbsp;
+            <a href="./?page=Logout">Logout</a>
+            &nbsp;|&nbsp;            
+            {if $page == 'Login'}     <span class="linkActive">Login</span>  {else}<a href="./?page=Login">Login</a>{/if}
+            <br />
+        </div> 

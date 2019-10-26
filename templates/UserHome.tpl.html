@@ -1,0 +1,164 @@
+<div class="stdBox">
+    <div class="stdBoxHeader">Anzeigename ändern</div>
+    <div class="stdBoxContent">
+    <form action="./?page=UserHome&action=setName" method="post">
+        {if $nameChangeError}
+            <div class="stdErrorLine">
+                Der Anzeigename konnte nicht geändert werden. Höchstwahrscheinlich ist er schon vergeben.
+            </div>                        
+        {/if}
+        {if $nameChangeSuccess}
+            <div class="stdMessageLine">
+                Der Anzeigename wurde efolgreich geändert.
+            </div>                        
+        {/if}        
+        <div class="stdFormLine">
+            <div class="stdFormLineInput"><input name="name" type="text" value="{$user->name}"></input></div>                       
+        </div>
+        <div class="stdFormLine">
+            <input type="submit" value="speichern"></input>
+        </div>        
+    </form>
+    </div>
+</div>
+
+<div class="stdBox">
+    <div class="stdBoxHeader">Email-Adresse und Updatestatus ändern</div>
+    <div class="stdBoxContent">
+    <form action="./?page=UserHome&action=setEmail" method="post">
+        {if $emailChangeSuccess}
+            <div class="stdMessageLine">
+                Die Email-Adresse und der Updatestatus wurden erfolgreich geändert.
+            </div>                        
+        {/if}   
+        {if $emailChangeError}
+            <div class="stdErrorLine">
+                Die Email-Adresse und der Updatestatus konnten nicht geändert werden.
+            </div>                        
+        {/if}     
+        <div class="stdFormLine">
+            <input name="email" type="text" value="{$user->email}"></input>                                 
+        </div>
+        <div class="stdFormLine">
+             <input name="newsletter" type="checkbox" {if $user->newsletter}checked{/if}></input>
+             Ich möchte über Updates in der Galerie per E-Mail informiert werden                   
+        </div>
+        <div class="stdFormLine">
+            <input type="submit" value="speichern"></input>
+        </div>        
+    </form>
+    </div>
+</div>
+
+<div class="stdBox">
+    <div class="stdBoxHeader">Galeriebild</div>
+    <div class="stdBoxContent">
+    {if $user->imageFilename}
+        <div class="stdInfoLine">
+                <a href="./?page=Galery&action=goToUser&userId={$user->id}"><b>HIER</b> geht's zu Deinem Exponat.</a> 
+                Dir wurde per zufall ein Platz zugewiesen. Du kannst Deinen Platz aber jederzeit ändern indem Du Dich vor eine Wand stellst und den Link anclickst.                
+        </div>
+        <div class="stdInfoLine">
+                Deine Url lautet:&nbsp;<input type="text" readonly value="{$basePath}?page=Galery&action=goToUser&userId={$user->id}" size=80/>                                 
+        </div>    
+        <div class="userHomeImagePreview">
+             <img src="./images/userimages/{$user->id}/100x100/{$user->imageFilename}"></img>                                        
+        </div>        
+    {else}
+           <div class="stdErrorLine">
+               Du hast noch kein Bild hochgeladen.
+           </div>         
+    {/if}
+    <form action="./?page=UserHome&action=setImage" method="post" enctype="multipart/form-data"> 
+        {if $setImageError}
+            <div class="stdErrorLine">
+                Das Bild konnte leider nicht hochgeladen werden. 
+            </div>                        
+        {/if}     
+        {if $wrongImageFormat}
+            <div class="stdErrorLine">
+                Nur '.jpg' und '.png' werden unterstüzt.
+            </div>             
+        {/if}
+        <div class="stdFormLine">
+             <input type="file" name="image" size="20" />                                         
+        </div>
+        <div class="stdFormLine">
+            <input type="submit" value="hochladen"></input>
+        </div>        
+    </form>
+    </div>
+</div>
+
+<div class="stdBox">
+    <div class="stdBoxHeader">Text anpassen (Dir stehen 161 Zeichen zur Verfügung)</div>
+    <div class="stdBoxContent">
+    <form action="./?page=UserHome&action=setShortDescription" method="post">
+        {if $shortDescriptionChangeSuccess}
+            <div class="stdMessageLine">
+                Dein Text wurde erfolgreich geändert.
+            </div>                        
+        {/if}        
+        <div class="stdFormTextArea">
+            <textarea name="shortDescription" cols="50" rows="5" wrap="soft">{$user->shortDescription}</textarea>                      
+        </div>
+        <div class="stdFormLine">
+            <input type="submit" value="speichern"></input>
+        </div>        
+    </form>
+    </div>
+</div>
+
+<div class="stdBox">
+    <div class="stdBoxHeader">Link anpassen</div>
+    <div class="stdBoxContent">
+    <form action="./?page=UserHome&action=setWeblink" method="post">
+        {if $linkChangeSuccess}
+            <div class="stdMessageLine">
+                Dein Link wurde erfolgreich geändert.
+            </div>                        
+        {/if}        
+        <div class="stdFormLine">
+            http://<input name="weblink" type="text" value="{$user->weblink}"></input>                     
+        </div>
+        <div class="stdFormLine">
+            <input type="submit" value="speichern"></input>
+        </div>        
+    </form>
+    </div>
+</div>
+
+<div class="stdBox">
+    <div class="stdBoxHeader">Kommentare</div>
+    <div class="stdBoxContent">
+    <form action="./?page=UserHome&action=setAllowsComments" method="post">
+        {if $commentChangeSuccess}
+            <div class="stdMessageLine">
+                Der Kommentarstatus wurde efolgreich geändert.
+            </div>                        
+        {/if}        
+        <div class="stdFormLine">
+            <input name="allowsComments" type="checkbox" {if $user->allowsComments}checked="checked"{/if}"></input> Kommentare zu meinem Exponat zulassen                      
+        </div>
+        <div class="stdFormLine">
+            <input type="submit" value="speichern"></input>
+        </div>        
+    </form>
+    {foreach from=$comments item=comment}       
+    {include file="UserComment.tpl.html"}
+    {/foreach}
+    </div>
+</div>
+
+<div class="stdBox">
+    <div class="stdBoxHeader">Account löschen</div>
+    <div class="stdBoxContent">
+    <form action="./?page=UserHome&action=deleteAccount" method="post">
+        Achtung: Account wird ohne Nachfrage gelöscht!        
+        <div class="stdFormLine">
+            <input type="submit" value="Account löschen"></input>
+        </div>        
+    </form>
+    </div>
+</div>
+

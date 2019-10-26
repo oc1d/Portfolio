@@ -1,0 +1,18 @@
+
+
+
+<div class="stdBox">
+    <div class="stdBoxHeader">Kommentare ansehen zu {$ownerUser->name}</div>
+    <div class="stdBoxContent">
+    {if $ownerUser->imageFilename}
+     <img src="./images/userimages/{$ownerUser->id}/400x400/{$ownerUser->imageFilename}"></img>
+    {/if}
+    <p>
+    <a href="./?page=Galery"> &lt;&lt;&nbsp; zurück zur Galerie</a> &nbsp;|&nbsp;
+                 <a href="./?page=WriteComment&ownerUserId={$ownerUser->id}">Kommentar schreiben</a>
+    </p>
+    {foreach from=$comments item=comment}       
+    {include file="UserComment.tpl.html"}
+    {/foreach}
+    </div>
+</div>

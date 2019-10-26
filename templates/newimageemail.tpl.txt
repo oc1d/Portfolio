@@ -1,0 +1,6 @@
+%NAME% hat ein neues Bild in die Galerie hochgeladen.
+
+<a href="%LINK%">ZUM EXPONAT</a>
+
+Viel Spaß beim Stöbern,
+das Portfolio-Team

@@ -1,0 +1,7 @@
+Ein neuer Benutzer hat sich in der Galerie Registriert. Folge dem Link um zu dem Platz zu kommen. 
+Sollte der Beuntzer das Bild noch nicht aufgehängt haben gelangst Du nur in die Galerie. Probiere es dann später einfach noch mal.
+
+<a href="%LINK%">ZUM EXPONAT</a>
+
+Viel Spaß beim Stöbern,
+das Portfolio-Team

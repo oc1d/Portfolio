@@ -1,0 +1,365 @@
+    /**
+ -0
+*/
+
+.minusZero {
+    left: 130px;
+    top: 50px; 
+    position: absolute;            
+}
+
+.minusZeroText {    
+    background-color: white;   
+}
+
+.minusZeroBox {
+    width: 400px;
+    height: 400px;   
+    text-align: left;      
+}
+/*************0*****************/
+
+/******************************
+ -1
+*/
+.minusOneLeft, .minusOneRight, .minusOne {
+	position: absolute;   
+    
+}
+
+/**POSITION*/
+.minusOneLeft {
+    left: 130px;
+    top: 130px; 
+    z-index: 30; 
+}
+
+.minusOneRight {
+    left: 440px;
+    top: 130px; 
+    z-index: 30; 
+}
+
+.minusOne {
+    left: 220px;
+    top: 120px;  
+    z-index: 29; 
+}
+
+/**TEXT*/
+
+.minusOneTextLeft {
+    text-align: left;
+    background-color: white;                 
+}
+
+.minusOneTextRight {
+    text-align: right;
+    background-color: white;    
+}
+
+.minusOneText {    
+    background-color: white;    
+}
+
+/**BOX*/
+
+.minusOneBoxLeft {
+    width: 230px;
+    height: 400px;   
+    text-align: left;  
+}
+
+.minusOneBoxRight {
+    width: 230px;
+    height: 400px;    
+    text-align: right;     
+}
+
+.minusOneBox {
+    width: 230px;
+    height: 400px;   
+    text-align: left;         
+}
+/************-1*****************/
+
+/******************************
+ -2
+*/
+
+.minusTwoLeft, .minusTwoRight, .minusTwo {
+    position: absolute;  
+    
+}
+
+/**POSITION*/
+.minusTwoLeft {
+    left: 210px;
+    top: 165px; 
+    z-index: 21;       
+}
+
+.minusTwoRight {
+    left: 360px;
+    top: 170px; 
+    z-index: 21;
+}
+
+.minusTwo {
+    left: 280px;
+    top: 160px;  
+    z-index: 20;
+}
+
+/**TEXT*/
+
+.minusTwoTextLeft {
+    text-align: left;
+    background-color: white;                 
+}
+
+.minusTwoTextRight {
+    text-align: right;
+    background-color: white;    
+}
+
+.minusTwoText {    
+    background-color: white;    
+}
+
+/**BOX*/
+
+.minusTwoBoxLeft {
+    width: 230px;
+    height: 400px;   
+    text-align: left;
+}
+
+.minusTwoBoxRight {
+    width: 230px;
+    height: 400px;    
+    text-align: right;    
+}
+
+.minusTwoBox {
+    width: 230px;
+    height: 400px;   
+    text-align: left;      
+}
+/************-2*****************/
+
+/******************************
+ -3
+*/
+
+/**POSITION*/
+.minusThreeLeft {
+    left: 270px;
+    top: 193px; 
+    position: absolute;   
+    z-index: 11;           
+}
+
+.minusThreeRight {
+    left: 310px;
+    top: 200px;
+    position: absolute;  
+    z-index: 11;       
+}
+
+.minusThree {
+    left: 320px;
+    top: 200px;
+    position: absolute;  
+    z-index: 10;       
+}
+
+/**TEXT*/
+
+.minusThreeTextLeft {
+    text-align: left;
+    background-color: white;                 
+}
+
+.minusThreeTextRight {
+    text-align: right;
+    background-color: white;    
+}
+
+.minusThreeText {   
+	font-size: 5pt;    
+    background-color: white;    
+}
+
+/**BOX*/
+
+.minusThreeBoxLeft {
+    width: 230px;
+    height: 400px;   
+    text-align: left;
+}
+
+.minusThreeBoxRight {
+    width: 230px;
+    height: 400px;    
+    text-align: right;   
+}
+
+.minusThreeBox {
+    width: 230px;
+    height: 400px;   
+    text-align: left;          
+}
+/************-3*****************/
+
+/******************************
+ -4
+*/
+
+/**POSITION*/
+.minusFourLeft {
+    left: 300px;
+    top: 240px; 
+    position: absolute;   
+    z-index: 0;            
+}
+
+.minusFourRight {
+    left: 280px;
+    top: 220px;
+    position: absolute;    
+    z-index: 0;     
+}
+
+.minusFour {
+    left: 350px;
+    top: 230px;
+    position: absolute;
+    z-index: 0;     
+    
+}
+
+/**TEXT*/
+
+.minusFourTextLeft {
+    text-align: left;
+    background-color: white;                 
+}
+
+.minusFourTextRight {
+    text-align: right;
+    background-color: white;    
+}
+
+.minusFourText { 
+	font-size: 3pt;   
+    background-color: white;    
+}
+
+/**BOX*/
+
+.minusFourBoxLeft {
+    width: 230px;
+    height: 400px;   
+    text-align: left; 
+}
+
+.minusFourBoxRight {
+    width: 230px;
+    height: 400px;    
+    text-align: right;       
+}
+
+.minusFourBox {
+    width: 230px;
+    height: 400px;   
+    text-align: left;          
+}
+/************-4*****************/
+
+.viewAllCommentsLink {    
+	}
+	
+.comments {
+	
+	position: relative;
+    /*
+    top: 600px;
+    left: 800px;
+    */
+	}
+	
+.userCommentDate {
+	color: #777;
+	font-size: 7pt;
+	}
+
+a.userCommentLink {
+    color: #777;
+    font-size: 7pt;
+    }
+a.userCommentLink:hover {
+    color: #777;
+    font-size: 7pt;
+    text-decoration: underline;
+    }
+    
+	
+.userCommentText {
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-bottom: 5px;	
+	}
+		
+.userComment {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    
+    border: 4px solid #555;
+    width: 250px;
+    }
+
+.userCommentWide {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    height: 85px;
+    margin-right: 10px;
+    border: 4px solid #555;
+    width: 400px;
+    }
+	
+.userQuote {
+	font-size: 15pt;
+	}	
+	
+.setUserPlace
+{
+	left: 300px;
+    top: 240px; 
+    position: absolute;   
+    z-index: 0;  
+}
+.options {
+    witdh: 200px;
+    height: 200px;	
+}
+
+.galeryName {
+	font-size: 13pt;
+}
+.galeryText {
+    font-size: 10pt;
+}
+.galeryTextContainer {
+	margin-top: 10px;
+}
+.galeryLink {
+    margin-top: 5px;
+}
+.roomId {
+	font-size: 8pt;
+	color: grey;
+	padding-left: 5px;	
+}

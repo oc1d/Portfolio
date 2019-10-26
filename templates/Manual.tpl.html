@@ -1,0 +1,105 @@
+<div class="stdBox">
+    <div class="stdBoxHeader">Einführung:</div>
+    <div class="stdBoxContent">
+    <p>
+      Im folgenden ist hier eine Anleitung zu finden, wie ihr eure „Räume“ oder was abstrakteres selber konzipieren <br/>
+      und in die Seite einpflegen könnt. Dabei könnt ihr euch  relativ frei von dem bestehenden Raumkonzept entfalten, <br/>
+      doch gibt es einige Vorgaben an die ihr doch  durch die Programmierung gebunden seit, die hier erklärt werden.      
+    </p>
+    <p>
+      Dieses Projekt wurde in der Programmiersprache <a href="http://www.php.net/">PHP</a> realisiert. Ihr müsst nicht programmieren können
+      um eure <br /> eigenen Räume zu gestalten, jedoch solltet ihr keine „Angst“ vor Programmcodezeilen haben :)
+    </p>
+    </div>
+</div>
+
+<div class="stdBox">
+    <div class="stdBoxHeader">Anregung Raumkonzeption:</div>
+    <div class="stdBoxContent">
+    <p>
+      Die Zeichnungen entstanden mit „Kopik-Markern“ und durch Füllen der Boden- und Deckenflächen mit einem<br/> 
+      Zeichenprogramm, auf einem vorbereiteten Papier, auf dem Ecken- und Kanten- Markierungen in dem Gewünschten<br/> 
+      Format (4:3) aufgedruckt waren.<br/>
+      Das Gitter der Raumteile wurde anhand einer überlegten Schablone (s. Abb. 1) angefertigt.<br/>
+      <img src="./images/Manual/ab1.jpg" alt="Grafik"><br/>
+      Abb.1: Schablone<br/><br/>
+      Nach dem Einscannen, der Bearbeitung und der Skalierung ( 800x600 Pixel ) <br/>
+      können  die einzelnen Ansichten der Räume eingepflegt werden.
+    </p>
+    </div>
+</div>
+
+<div class="stdBox">
+    <div class="stdBoxHeader"> Aufbau einzelner Räume:</div>
+    <div class="stdBoxContent">
+    <p>
+	Jeder Raum wird durch eine 5x5 Matrix aufgeteilt, wobei dann jedes Quadrat dieser Matrix ein Bild in Nord-,<br/>
+	Süd-, Ost- und West-Richtung enthält, je nachdem in welche Richtung die Person guckt.  Wechsele ich von einem<br/>
+	Quadrat in ein benachbartes, dann bedeutet das ich bewege mich in dem Raum einen Schritt vor, zurück oder zu den<br/>
+	Seiten. Jedes Quadrat enthält 4 Bilder und somit kann die Matrix bis zu 100 Bilder umfassen (s. Abb. 2), je nachdem<br/>
+	wo und wie viele Wände ich in dem Raum habe reduziert sich die Anzahl.<br/>
+    <img src="./images/Manual/ab2.jpg" alt="Grafik"><br/>
+	Abb.2: Matrix
+	</p>
+	<p>
+	Als Beispiel im Folgenden einmal das Element 0101 im Detail:<br />
+	<img src="./images/Manual/mapElement.png" alt="Grafik"><br />
+	Abb.2.1: Einzelnes MapElement
+    </p>
+    </div>
+</div>
+
+<div class="stdBox">
+    <div class="stdBoxHeader">Einfügen der Bilder:</div>
+    <div class="stdBoxContent">
+    <p>
+	Die Räume mit ihren für euch wichtigen Informationen sind in dem Ordner „\portfolio\mapblockdata\A\images„ zu finden,<br/>
+	wobei hier der Ordner „A“ für den Raum A steht (siehe Abb3.). Die einzelnen Bilder im Jpg-Format müssen die<br/>
+	richtigen Bezeichnungen besitzen. Die Bezeichnung setzt sich aus der Position in der Matrix zusammen<br/>
+	(z.B. 0405 siehe Abb.2) und der absoluten Himmelsrichtung welche durch die Buchstaben „N“ für Nord, „S“ für Süd,<br/>
+	„E“ für Ost und „W“ für West steht. Also setzt sich der Name wie folgt zusammen: „Position in der Matrix“ + <br/>
+	„Himmelsrichtung“ + „.jpg“; hier z.B. 0405E.jpg.<br/><br/>
+	<img src="./images/Manual/ab3.jpg" alt="Grafik"><br/>
+    Abb.3: Ordner<br/><br/>
+	
+    </p>
+    </div>
+</div>
+
+<div class="stdBox">
+    <div class="stdBoxHeader">Bilder in die Map integrieren:</div>
+    <div class="stdBoxContent">
+    <p>
+	Um die Bilder an der richtigen Position einzufügen, anzuzeigen  und Informationen über Wände zu speichern,<br/>
+	müssen für jeden Raum in dem Ordner , als Beispiel hier für den Raum „A“  \portfolio\mapblockdata\A\MapBlockA.php,<br/>
+	die jeweiligen Einträge wie unten beschrieben für die „MapBlock“RaumBezeichner“.php“ geändert werden.<br/>
+	Hier ein Auszuge des Codes der modifiziert werden muss: 
+	<br/><br/>
+	<img src="./images/Manual/ab4.jpg" alt="Grafik"><br/>
+    Abb.4: Auszug Code1<br/><br/>
+    Jeder neue Block für ein Quadrat in der Matrix wird durch einen Kommentar, z.B. für die Position 0503 (siehe Abb. 2), <br/>
+    der wie folgt aussieht : „// 5 x 3“ begonnen (siehe Auszug Code1).<br/>
+	Die absoluten der Ausrichtungen der Bilder in dem Quadrat werden durch die Bezeichnungen „northElement“, <br/>
+	„eastElement“, „southElement“ und „westElement“ angeführt.<br/>
+	Wichtig sind in den jeweiligen Zeilen die Parameter („false“ bzw. „true“, „....“, true), welche modifiziert werden <br/>
+	müssen. Der erste Parameter in dem jeweiligen Block der entweder den Wert „true“ oder „false“ aufweist, gibt an ob <br/>
+	das nächste Element eine Mauer ist oder nicht. Ist dies der Fall  dann gebe den Wert „true“ oder wenn das <br/>
+	Nachbarelement in der jeweiligen Richtung keine aufweist, dann „false“. Der nächste Parameter z.B.  „0503N“ <br/>
+	(siehe Auszug Code1) gibt den Namen des Bildes ohne Formatbezeichnung an. Ist hiernach noch ein true als Parameter<br/>
+	verzeichnet, so ist diese Position ein Spawnpoint, das heißt ein Einstiegspunkt der per Zufall beim betreten<br/> 
+	der Galerie gesetzt wird.<br/>
+	Wichtig ist zudem noch für jedes Quadrat das die Daten richtig „gespeichert“ werden was in der letzten Zeile des <br/>
+	jeweiligen Blocks geschieht:  <font face:"Courier">„$map->setElementAt($sx + 5, $sy + 3, $mapElement);“.</font>In diesem Beispiel sind die<br/>
+	Wert „5“ und „3“ gesetzt was für die Position „0503“ in der Matrix steht.<br/>
+	</p>
+    </div>
+</div>
+
+<div class="stdBox">
+    <div class="stdBoxHeader">Setzen von Positionen Der Ausstellungsexponate</div>
+    <div class="stdBoxContent">
+    <p>
+	blalalalalal
+	</p>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+{if !$session}
+    {literal}
+	    <script language="javascript">
+	    window.open('./sound.html','Portfolio | sound','width=1,height=1, location=no');
+	    </script>
+    {/literal}
+{/if}
+
+<div class="viewPortAndControls">
+<div class="viewPort">
+    {if $mapImage->viewPicture}
+        <img src="./mapblockdata/{$mapBlockClass}/images/{$mapImage->viewPicture}" />        
+    {/if}       
+    {foreach from=$mapImage->mapImageProperties item=property}
+        {if $property->user->id}
+        <div class="{$property->positionCssClass}">        
+            <div class="{$property->boxCssClass}" {if $opacity && $property->relativePosY != '0'}style="filter:alpha(opacity={$opacityVal}0);opacity: 0.{$opacityVal};-moz-opacity:0.{$opacityVal};"{/if} >
+                <img src="./images/userimages/{$property->user->id}/{$property->userImageWidth}x{$property->userImageHeight}/{$property->user->imageFilename}"></img>
+                <div class="{$property->textCssClass}">    
+                <div class="galeryTextContainer">
+                    <span class="galeryName">{$property->user->name}</span>&nbsp;&mdash;&nbsp;                              
+                    <span class="galeryText">{$property->user->shortDescription}</span>                                        
+                    {if $property->user->weblink}
+                    <div class="galeryLink">
+                        <code><a class="{$property->linkCssClass}" href="http://{$property->user->weblink}" target="_blank">{$property->user->weblink}</a></code>
+                    </div>
+                    {/if}
+                </div>
+                </div>                                
+            </div>        
+        </div>                          
+        {elseif  $property->relativeDirection == '1' && $property->relativePosX == '0'  && $property->relativePosY == '0'}
+            <div class="setUserPlace"><a href="./?page=UserHome&action=setUserPlace&x={$posX}&y={$posY}&direction={$direction}">Mein Exponat hier aufhängen</a></div>
+        {/if}
+    {/foreach}     
+</div>
+<div class="controls">
+    <div class="mapVertSpacer">
+	    <div class="controlOnOff">
+	        
+	        {if $showMap}
+	        <div class="map" style="background-image: url('./mapblockdata/{$mapBlockClass}/images/overview.jpg');">
+	            <div class="positionPoint" style="position:relative ;padding-top:{$mapPointTopMargin}px; padding-left:{$mapPointLeftMargin}px;">
+	                <div style="width: 20px; height: 20px; background-image: url('./images/mapArrow{if $direction == '1'}North{elseif $direction == '2'}East{elseif $direction == '3'}South{elseif $direction == '4'}West{/if}.jpg');"></div>        
+	            </div>
+	        </div>
+	        <div class="roomId">Raum {$blockId}</div>        
+	        {/if}  	     
+	                   
+	    </div>
+    </div>  
+       <div class="controlOnOffText"><a href="./?page=Galery&action={if $showMap}disableMap{else}enableMap{/if}">{if $showMap}karte aus{else}karte ein{/if}</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="./?page=Galery&action={if $opacity}disableOpacity{else}enableOpacity{/if}">{if $opacity}Transparenz aus{else}Transparenz ein{/if}</a></div>       
+       <div class="controlOnOffText"></div>
+       <form action="./?page=galery&action=setOpacityValue" method="post">
+       <div class="controlOnOffText">Wert:
+       <select name="opacityValue">
+              <option {if $opacityVal == '1'}selected{/if}>1</option>
+              <option {if $opacityVal == '2'}selected{/if}>2</option>
+              <option {if $opacityVal == '3'}selected{/if}>3</option>
+              <option {if $opacityVal == '4'}selected{/if}>4</option>
+              <option {if $opacityVal == '5'}selected{/if}>5</option>
+              <option {if $opacityVal == '6'}selected{/if}>6</option>
+              <option {if $opacityVal == '7'}selected{/if}>7</option>
+              <option {if $opacityVal == '8'}selected{/if}>8</option>
+              <option {if $opacityVal == '9'}selected{/if}>9</option>
+            </select>
+            <input type="submit" value="&auml;ndern"></input>
+       </div>              
+       </form>          
+       <div class="directions">              
+        <div class="directionLine">
+        <a class="turnLeft" href="./?page=Galery&action=turnLeft"></a>
+        <a href="./?page=Galery&action=goForward"><div class="goForward"></div></a>  
+        <a href="./?page=Galery&action=turnRight"><div class="turnRight"></div></a>
+        </div>
+        <div class="directionLine">  
+        <a href="./?page=Galery&action=goLeft"><div class="goLeft"></div></a>
+        <a href="./?page=Galery&action=goBackward"><div class="goBackward"></div></a>
+        <a href="./?page=Galery&action=goRight"><div class="goRight"></div></a>
+        </div>
+        <div class="wall">{if $wall || $mapEnd}<img src="./images/Wall.jpg" />{/if}</div>
+    </div>  
+    <div class="lastComment"> 
+    {if $comment}  
+	                   
+	  <div class="comments">
+	      <em>Letzer Kommentar:</em>                
+	      {include file="UserComment.tpl.html"}
+	  </div>                        
+	  <div class="viewAllCommentsLink">
+	      <a href="./?page=ViewComments&ownerUserId={$property->user->id}">Alle Kommentare</a> &nbsp;|&nbsp;
+	       <a href="./?page=WriteComment&ownerUserId={$property->user->id}">Kommentar schreiben</a>
+	 </div>
+	{elseif $commentsAllowed}	
+	 <div class="viewAllCommentsLink">       
+	       <a href="./?page=WriteComment&ownerUserId={$property->user->id}">Hinterlasse als erster einen Kommentar</a>	  
+	   </div>
+	</div>       
+	{/if}  
+</div>
+</div>
+

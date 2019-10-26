@@ -1,0 +1,5 @@
+<div class="userComment">
+    <a href="./?page=Galery&action=goToUser&userId={$comment->commentUserId}"><b>{$comment->commentUserName}</b></a> {if $comment->commentUserId == $user->id || $comment->userId == $user->id} <a href="./?page=ViewComments&action=deleteComment&commentId={$comment->id}">(diesen Kommentar löschen)</a>{/if}     
+    <div class="userCommentText">{$comment->text}</div>
+    <span class="userCommentDate">{$comment->datePosted}</span>     
+</div>  

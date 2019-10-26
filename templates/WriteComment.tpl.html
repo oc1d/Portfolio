@@ -1,0 +1,17 @@
+<div class="stdBox">
+    <div class="stdBoxHeader">Kommentar schreiben zu {$ownerUser->name}</div>
+    <div class="stdBoxContent">
+    {if $ownerUser->imageFilename}
+     <img src="./images/userimages/{$ownerUser->id}/400x400/{$ownerUser->imageFilename}"></img>
+    {/if}
+    <form action="./?page=WriteComment&action=submitComment&ownerUserId={$ownerUser->id}" method="post">
+        <div class="stdFormLine"><div class="stdFormLineText">Dein Kommentar:</div></div>       
+        <div class="stdFormTextArea">
+           <textarea name="commentText" cols="50" rows="5" wrap="soft"></textarea>                
+        </div>
+        <div class="stdFormLine">
+            <input type="submit" value="absenden"></input>
+        </div>        
+    </form>
+    </div>
+</div>
